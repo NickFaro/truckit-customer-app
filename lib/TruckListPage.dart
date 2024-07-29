@@ -145,7 +145,7 @@ class _TruckListPageState extends State<TruckListPage> {
                           borderSide: BorderSide(color: Colors.white, width: 1.0),
                         ),
                       ),
-                      dropdownColor: Color.fromARGB(255, 163, 218, 163), // Green tint
+                      dropdownColor: const Color(0xFF1C1C1E),
                       style: const TextStyle(color: Colors.white),
                       icon: const Icon(Icons.arrow_drop_down, color: Colors.white),
                     ),
@@ -183,7 +183,7 @@ class _TruckListPageState extends State<TruckListPage> {
                           borderSide: BorderSide(color: Colors.white, width: 1.0),
                         ),
                       ),
-                      dropdownColor: const Color.fromARGB(255, 206, 255, 206), // Green tint
+                      dropdownColor: const Color(0xFF1C1C1E), // Green tint
                       style: const TextStyle(color: Colors.white),
                       icon: const Icon(Icons.arrow_drop_down, color: Colors.white),
                     ),
@@ -216,6 +216,21 @@ class _TruckListPageState extends State<TruckListPage> {
                         }
 
                         var trucks = truckSnapshot.data!.docs;
+
+                        // Filter trucks by search query
+                        if (searchQuery.isNotEmpty) {
+                          trucks = trucks.where((truck) {
+                            var truckName = truck['name'].toString().toLowerCase();
+                            return truckName.contains(searchQuery.toLowerCase());
+                          }).toList();
+                        }
+
+                        // Sort trucks based on selectedSortOption
+                        if (selectedSortOption == 'Alphabetical') {
+                          trucks.sort((a, b) => a['name'].compareTo(b['name']));
+                        } else if (selectedSortOption == 'Reverse Alphabetical') {
+                          trucks.sort((a, b) => b['name'].compareTo(a['name']));
+                        }
 
                         return Column(
                           children: trucks.map((truck) {
@@ -269,7 +284,6 @@ class _TruckListPageState extends State<TruckListPage> {
                                         ),
                                       );
                                     },
-
                                   ),
                                 );
                               },
@@ -393,7 +407,7 @@ class TruckDetailPage extends StatelessWidget {
                                   return ListTile(
                                     title: Text(item['name'], style: TextStyle(color: Colors.white)),
                                     subtitle: Text(item['description'], style: TextStyle(color: Colors.white)),
-                                    trailing: Text('\$${item['price']}.0', style: TextStyle(color: Colors.white)),
+                                    trailing: Text('\$${item['price']}', style: TextStyle(color: Colors.white)),
                                   );
                                 },
                               );
