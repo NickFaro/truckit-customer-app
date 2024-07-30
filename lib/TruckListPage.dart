@@ -315,6 +315,12 @@ class TruckDetailPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Truck Details'),
         backgroundColor: const Color(0xFF1C1C1E),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       backgroundColor: const Color(0xFF1C1C1E),
       body: Padding(
