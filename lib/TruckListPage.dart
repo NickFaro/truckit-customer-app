@@ -96,7 +96,7 @@ class _TruckListPageState extends State<TruckListPage> {
                       }).toList(),
                       decoration: const InputDecoration(
                         filled: true,
-                        fillColor: Color(0xFF1C1C1E), // Green tint
+                        fillColor: Color(0xFF1C1C1E), 
                         border: UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.white),
                         ),
@@ -107,7 +107,7 @@ class _TruckListPageState extends State<TruckListPage> {
                           borderSide: BorderSide(color: Colors.white, width: 1.0),
                         ),
                       ),
-                      dropdownColor: const Color(0xFF1C1C1E),
+                      dropdownColor: Colors.black,
                       style: const TextStyle(color: Colors.white),
                       icon: const Icon(Icons.arrow_drop_down, color: Colors.white),
                     ),
@@ -134,7 +134,7 @@ class _TruckListPageState extends State<TruckListPage> {
                       }).toList(),
                       decoration: const InputDecoration(
                         filled: true,
-                        fillColor: Color(0xFF1C1C1E), // Green tint
+                        fillColor: Color(0xFF1C1C1E), 
                         border: UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.white),
                         ),
@@ -145,7 +145,7 @@ class _TruckListPageState extends State<TruckListPage> {
                           borderSide: BorderSide(color: Colors.white, width: 1.0),
                         ),
                       ),
-                      dropdownColor: const Color(0xFF1C1C1E),
+                      dropdownColor: Colors.black,
                       style: const TextStyle(color: Colors.white),
                       icon: const Icon(Icons.arrow_drop_down, color: Colors.white),
                     ),
@@ -183,7 +183,7 @@ class _TruckListPageState extends State<TruckListPage> {
                           borderSide: BorderSide(color: Colors.white, width: 1.0),
                         ),
                       ),
-                      dropdownColor: const Color(0xFF1C1C1E), // Green tint
+                      dropdownColor: Colors.black, // Green tint
                       style: const TextStyle(color: Colors.white),
                       icon: const Icon(Icons.arrow_drop_down, color: Colors.white),
                     ),
