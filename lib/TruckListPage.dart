@@ -9,7 +9,6 @@ class TruckListPage extends StatefulWidget {
 class _TruckListPageState extends State<TruckListPage> {
   String searchQuery = '';
   String selectedFoodType = 'All';
-  String selectedRadius = '5 miles';
   String selectedSortOption = 'Alphabetical';
 
   @override
@@ -77,7 +76,7 @@ class _TruckListPageState extends State<TruckListPage> {
                 children: [
                   // Dropdown for selecting food type
                   Container(
-                    width: MediaQuery.of(context).size.width * 0.3,
+                    width: MediaQuery.of(context).size.width * 0.45,
                     child: DropdownButtonFormField<String>(
                       value: selectedFoodType,
                       onChanged: (String? newValue) {
@@ -113,47 +112,10 @@ class _TruckListPageState extends State<TruckListPage> {
                     ),
                   ),
                   SizedBox(width: 8),
-                  // Dropdown for selecting search radius
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.3,
-                    child: DropdownButtonFormField<String>(
-                      value: selectedRadius,
-                      onChanged: (String? newValue) {
-                        if (newValue != null) {
-                          setState(() {
-                            selectedRadius = newValue;
-                          });
-                        }
-                      },
-                      items: <String>['5 miles', '10 miles', '20 miles']
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                      decoration: const InputDecoration(
-                        filled: true,
-                        fillColor: Color(0xFF1C1C1E), 
-                        border: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white, width: 1.0),
-                        ),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white, width: 1.0),
-                        ),
-                      ),
-                      dropdownColor: Colors.black,
-                      style: const TextStyle(color: Colors.white),
-                      icon: const Icon(Icons.arrow_drop_down, color: Colors.white),
-                    ),
-                  ),
-                  SizedBox(width: 8),
+
                   // Dropdown for selecting sort option
                   Container(
-                    width: MediaQuery.of(context).size.width * 0.3,
+                    width: MediaQuery.of(context).size.width * 0.45,
                     child: DropdownButtonFormField<String>(
                       value: selectedSortOption,
                       onChanged: (String? newValue) {
@@ -183,7 +145,7 @@ class _TruckListPageState extends State<TruckListPage> {
                           borderSide: BorderSide(color: Colors.white, width: 1.0),
                         ),
                       ),
-                      dropdownColor: Colors.black, // Green tint
+                      dropdownColor: Colors.black, 
                       style: const TextStyle(color: Colors.white),
                       icon: const Icon(Icons.arrow_drop_down, color: Colors.white),
                     ),
